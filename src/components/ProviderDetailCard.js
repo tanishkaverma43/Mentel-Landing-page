@@ -23,7 +23,7 @@ const ProviderDetailCard = () => {
         {/* Provider Image - 30-35% width, rounded corners */}
         <div className="w-full md:w-[32%] h-56 md:h-auto rounded-2xl overflow-hidden flex-shrink-0 bg-gray-200 shadow-sm">
           <img 
-            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&q=80" 
+            src="/image.jpg" 
             alt="Dr. Sam Walkfolk" 
             className="w-full h-full object-cover"
             onError={(e) => {

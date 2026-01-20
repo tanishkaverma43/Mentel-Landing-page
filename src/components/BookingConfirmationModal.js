@@ -4,6 +4,7 @@ import { X, Calendar } from "lucide-react";
 const BookingConfirmationModal = ({
   isOpen,
   onClose,
+  onConfirm,
   selectedDate,
   selectedTimeSlot,
   getDayName,
@@ -28,7 +29,7 @@ const BookingConfirmationModal = ({
 
         <div className="flex items-center gap-4 bg-blue-50 p-4 rounded-xl mb-6">
           <img
-            src="https://i.pravatar.cc/80"
+            src="/image.jpg"
             alt="doctor"
             className="w-16 h-16 rounded-full"
           />
@@ -52,7 +53,11 @@ const BookingConfirmationModal = ({
               <p className="text-sm text-gray-500">
                 {getDayName(selectedDate)} September {selectedDate}
               </p>
-              <p className="text-sm text-blue-600">{selectedTimeSlot}</p>
+              {selectedTimeSlot && (
+                <p className="text-base font-semibold text-blue-600 mt-1">
+                  {selectedTimeSlot}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -64,9 +69,12 @@ const BookingConfirmationModal = ({
           >
             Cancel
           </button>
-          <button className="w-full py-3 rounded-full bg-blue-600 text-white font-semibold">
-            Confirm Booking
-          </button>
+          <button
+  onClick={onConfirm}
+  className="w-full py-3 rounded-full bg-blue-600 text-white font-semibold"
+>
+  Confirm Booking
+</button>
         </div>
       </div>
     </div>

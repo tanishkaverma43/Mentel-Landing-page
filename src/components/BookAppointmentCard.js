@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronRight, Calendar as CalendarIcon } from 'lucide-react';
 import './BookAppointmentCard.css';
 import BookingConfirmationModal from './BookingConfirmationModal';
+import AppointmentScheduledModal from './AppointmentScheduledModal';
 
 
 const BookAppointmentCard = () => {
@@ -10,6 +11,7 @@ const BookAppointmentCard = () => {
   const [hoveredDate, setHoveredDate] = useState(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   
   // Booked dates (dates with red dots) - matching image: 7, 9, 15, 21, 22, 23, 24
   const bookedDates = [7, 9, 15, 21, 22, 23, 24];
@@ -187,9 +189,18 @@ const BookAppointmentCard = () => {
       <BookingConfirmationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        onConfirm={() => {
+          setIsModalOpen(false);
+          setShowSuccessModal(true);
+        }}
         selectedDate={selectedDate}
         selectedTimeSlot={selectedTimeSlot}
         getDayName={getDayName}
+      />
+
+<AppointmentScheduledModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
       />
     </div>
   );

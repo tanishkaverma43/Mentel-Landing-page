@@ -32,9 +32,7 @@ const Sidebar = () => {
       {/* Logo */}
       <div className="sidebar-logo">
         <span className="logo-text">MEN</span>
-        <span className="logo-bracket">[</span>
         <span className="logo-tel">TEL</span>
-        <span className="logo-bracket">]</span>
       </div>
 
       {/* Navigation Items */}

@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   width: 256px;
-  background: linear-gradient(to bottom, hsl(215, 60%, 85%) 0%, hsl(200, 70%, 75%) 100%);
+  background: linear-gradient(to bottom, #98D8FF, #5CAED7);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -26,7 +26,7 @@
   z-index: 1;
   padding: 28px 24px 24px 24px;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.8px;
   line-height: 1.2;
   color: white;
@@ -36,18 +36,18 @@
 
 .logo-text {
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .logo-bracket {
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .logo-tel {
-  color: transparent;
-  font-weight: 700;
-  border: 2px solid white;
+  color: white;
+  font-weight: 500;
+  border: 3px solid white;
   padding: 0 4px;
   margin: 0 2px;
   display: inline-block;
@@ -77,7 +77,8 @@
 }
 
 .nav-item-active {
-  background-color: #E8F6FC;
+  background-color: rgba(255, 255, 255, 0.3);
+
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
@@ -87,9 +88,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #e0f0ff;
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   flex-shrink: 0;
+}
+
+.nav-item-active .icon-background {
+  background-color: #4A9EFF;
 }
 
 .icon-inactive {
@@ -99,9 +104,10 @@
 }
 
 .icon-active {
-  color: #4A9EFF;
+  color: white;
   stroke-width: 2.5;
   flex-shrink: 0;
+ 
 }
 
 .text-inactive {
