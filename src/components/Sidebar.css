@@ -1,0 +1,176 @@
+.sidebar-container {
+  position: relative;
+  height: 100vh;
+  width: 256px;
+  background: linear-gradient(to bottom, hsl(215, 60%, 85%) 0%, hsl(200, 70%, 75%) 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Background overlay shape at bottom right */
+.sidebar-overlay {
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  background: rgba(191, 219, 254, 0.4);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Logo Section */
+.sidebar-logo {
+  position: relative;
+  z-index: 1;
+  padding: 28px 24px 24px 24px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  color: white;
+  font-weight: 700;
+}
+
+.logo-bracket {
+  color: white;
+  font-weight: 700;
+}
+
+.logo-tel {
+  color: transparent;
+  font-weight: 700;
+  border: 2px solid white;
+  padding: 0 4px;
+  margin: 0 2px;
+  display: inline-block;
+  letter-spacing: 0.8px;
+}
+
+/* Navigation Section */
+.sidebar-nav {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 8px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-item-active {
+  background-color: #E8F6FC;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.icon-background {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0f0ff;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.icon-inactive {
+  color: #000000;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.icon-active {
+  color: #4A9EFF;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+.text-inactive {
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.text-active {
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+/* Helpline Button */
+.helpline-container {
+  position: relative;
+  z-index: 1;
+  padding: 20px 16px 24px 16px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.helpline-button {
+  position: relative;
+  background-color: #FFC107;
+  border: none;
+  border-radius: 20px 10px 10px 20px;
+  padding: 12px 22px 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+  overflow: visible;
+}
+
+.helpline-button::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 9px;
+  border-color: transparent transparent transparent #FFC107;
+}
+
+.helpline-button:hover {
+  background-color: #F6C100;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.helpline-button:hover::after {
+  border-left-color: #F6C100;
+}
+
+.helpline-icon {
+  color: #000000;
+  stroke-width: 2;
+}
+
+.helpline-text {
+  color: #000000;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}

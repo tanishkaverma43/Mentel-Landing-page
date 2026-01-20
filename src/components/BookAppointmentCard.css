@@ -1,0 +1,258 @@
+.book-appointment-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Book Appointment Button - Outside container, above it */
+.book-appointment-button {
+  background-color: #6F6F6F;
+  color: #FFFFFF;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: -8px;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  align-self: center;
+}
+
+.book-appointment-button:hover:not(:disabled) {
+  background-color: #5F5F5F;
+}
+
+.book-appointment-button:disabled {
+  background-color: #CCCCCC;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.book-appointment-button.enabled:not(:disabled) {
+  background-color: #5E3BEE;
+}
+
+.book-appointment-button.enabled:hover:not(:disabled) {
+  background-color: #4d2fc7;
+}
+
+/* Calendar Container */
+.calendar-container {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.month-year {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.month-nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #A0A0A0;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.month-nav-button:hover {
+  color: #6F6F6F;
+}
+
+/* Days of Week Header */
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.day-header {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: #A0A0A0;
+  padding: 8px 0;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.calendar-day.other-month {
+  color: #CCCCCC;
+  cursor: default;
+}
+
+.calendar-day.current-month {
+  color: #000000;
+}
+
+.calendar-day.selected {
+  background-color: #5E3BEE;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.calendar-day.hovered {
+  border: 2px solid #5E3BEE;
+  background-color: #FFFFFF;
+  color: #5E3BEE;
+}
+
+/* Booked Dot */
+.booked-dot {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #FF0000;
+  border-radius: 50%;
+}
+
+/* Booked Legend */
+.booked-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #FF0000;
+  border-radius: 50%;
+}
+
+.legend-text {
+  font-size: 12px;
+  color: #000000;
+}
+
+/* Selected Day Details */
+.selected-day-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-icon {
+  color: #FFFFFF;
+  flex-shrink: 0;
+  background-color: #4a60f0;
+  padding: 10px;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected-date-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.available-slots-text {
+  font-size: 12px;
+  color: #28A745;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 2px;
+}
+
+/* Time Slots Grid */
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.time-slot {
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.time-slot.available {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-color: #E0E0E0;
+}
+
+.time-slot.available:hover {
+  border-color: #5E3BEE;
+  background-color: #F5F5F5;
+}
+
+.time-slot.available.selected {
+  background-color: #5E3BEE;
+  color: #FFFFFF;
+  border-color: #5E3BEE;
+}
+
+.time-slot.unavailable {
+  background-color: #F5F5F5;
+  color: #A0A0A0;
+  border-color: #E0E0E0;
+  cursor: not-allowed;
+}
