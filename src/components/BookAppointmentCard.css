@@ -5,7 +5,7 @@
   width: 100%;
 }
 
-/* Book Appointment Button - Outside container, above it */
+
 .book-appointment-button {
   background-color: #6F6F6F;
   color: #FFFFFF;
@@ -42,7 +42,6 @@
   background-color: #4d2fc7;
 }
 
-/* Calendar Container */
 .calendar-container {
   background-color: #FFFFFF;
   border-radius: 12px;
@@ -53,7 +52,7 @@
   z-index: 1;
 }
 
-/* Calendar Header */
+
 .calendar-header {
   display: flex;
   align-items: center;
@@ -84,7 +83,7 @@
   color: #6F6F6F;
 }
 
-/* Days of Week Header */
+
 .days-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -100,7 +99,7 @@
   padding: 8px 0;
 }
 
-/* Calendar Grid */
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -130,7 +129,7 @@
 }
 
 .calendar-day.selected {
-  background-color: #5E3BEE;
+  background-color: #3b82f6;
   color: #FFFFFF;
   font-weight: 600;
 }
@@ -141,7 +140,7 @@
   color: #5E3BEE;
 }
 
-/* Booked Dot */
+
 .booked-dot {
   position: absolute;
   bottom: 4px;
@@ -153,13 +152,13 @@
   border-radius: 50%;
 }
 
-/* Booked Legend */
+
 .booked-legend {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .legend-dot {
@@ -174,7 +173,7 @@
   color: #000000;
 }
 
-/* Selected Day Details */
+
 .selected-day-details {
   display: flex;
   align-items: center;
@@ -236,6 +235,23 @@
   background-color: #FFFFFF;
   color: #000000;
   border-color: #E0E0E0;
+  grid-column: 1;
+}
+
+.time-slot.available:nth-child(1) {
+  grid-row: 1;
+}
+
+.time-slot.available:nth-child(2) {
+  grid-row: 2;
+}
+
+.time-slot.available:nth-child(3) {
+  grid-row: 3;
+}
+
+.time-slot.available:nth-child(4) {
+  grid-row: 4;
 }
 
 .time-slot.available:hover {
@@ -244,9 +260,11 @@
 }
 
 .time-slot.available.selected {
-  background-color: #5E3BEE;
-  color: #FFFFFF;
-  border-color: #5E3BEE;
+  background-color: #d4edda;
+  color: #000000;
+  border-color: #1a7a30;
+  border-width: 2px;
+  font-weight: 700;
 }
 
 .time-slot.unavailable {
@@ -254,4 +272,21 @@
   color: #A0A0A0;
   border-color: #E0E0E0;
   cursor: not-allowed;
+  grid-column: 2;
+}
+
+.time-slot.unavailable:nth-child(5) {
+  grid-row: 1;
+}
+
+.time-slot.unavailable:nth-child(6) {
+  grid-row: 2;
+}
+
+.time-slot.unavailable:nth-child(7) {
+  grid-row: 3;
+}
+
+.time-slot.unavailable:nth-child(8) {
+  grid-row: 4;
 }

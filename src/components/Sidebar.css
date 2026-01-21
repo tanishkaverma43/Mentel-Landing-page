@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-/* Background overlay shape at bottom right */
+
 .sidebar-overlay {
   position: absolute;
   bottom: -80px;
@@ -20,7 +20,7 @@
   z-index: 0;
 }
 
-/* Logo Section */
+
 .sidebar-logo {
   position: relative;
   z-index: 1;
@@ -54,7 +54,7 @@
   letter-spacing: 0.8px;
 }
 
-/* Navigation Section */
+
 .sidebar-nav {
   position: relative;
   z-index: 1;
@@ -124,7 +124,7 @@
   letter-spacing: 0.2px;
 }
 
-/* Helpline Button */
+  
 .helpline-container {
   position: relative;
   z-index: 1;

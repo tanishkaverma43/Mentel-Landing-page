@@ -5,22 +5,24 @@ import BookingConfirmationModal from './BookingConfirmationModal';
 import AppointmentScheduledModal from './AppointmentScheduledModal';
 
 
-const BookAppointmentCard = () => {
-  const [currentMonth, setCurrentMonth] = useState(new Date(2022, 8, 1)); // September 2022
+const BookAppointmentCard = ({
+  selectedTimeSlot,
+  setSelectedTimeSlot,
+  isModalOpen,
+  setIsModalOpen,
+  showSuccessModal,
+  setShowSuccessModal
+}) => {
+  const [currentMonth, setCurrentMonth] = useState(new Date(2026, 0, 21)); 
   const [selectedDate, setSelectedDate] = useState(20);
   const [hoveredDate, setHoveredDate] = useState(null);
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
-  
-  // Booked dates (dates with red dots) - matching image: 7, 9, 15, 21, 22, 23, 24
+   
   const bookedDates = [7, 9, 15, 21, 22, 23, 24];
   
-  // Available time slots
   const availableTimeSlots = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM'];
   const unavailableTimeSlots = ['9:30 AM', '10:30 AM', '11:30 AM', '12:30 PM'];
   
-  // Get day name for selected date
+  
   const getDayName = (day) => {
     const date = new Date(2022, 8, day);
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -34,15 +36,15 @@ const BookAppointmentCard = () => {
   
   const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   
-  // Get first day of month and number of days
+  
   const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1).getDay();
   const daysInMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate();
   const daysInPrevMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 0).getDate();
   
-  // Generate calendar days
+
   const calendarDays = [];
   
-  // Previous month's trailing days
+
   for (let i = firstDay - 1; i >= 0; i--) {
     calendarDays.push({
       day: daysInPrevMonth - i,
@@ -51,7 +53,7 @@ const BookAppointmentCard = () => {
     });
   }
   
-  // Current month's days
+ 
   for (let day = 1; day <= daysInMonth; day++) {
     calendarDays.push({
       day,
@@ -60,8 +62,8 @@ const BookAppointmentCard = () => {
     });
   }
   
-  // Next month's leading days (to fill the grid)
-  const remainingDays = 42 - calendarDays.length; // 6 rows * 7 days
+  
+  const remainingDays = 42 - calendarDays.length; 
   for (let day = 1; day <= remainingDays; day++) {
     calendarDays.push({
       day,
@@ -76,18 +78,9 @@ const BookAppointmentCard = () => {
   
   return (
     <div className="book-appointment-wrapper">
-      {/* Book Appointment Button - Outside and above container */}
-      <button 
-        className={`book-appointment-button ${selectedTimeSlot ? 'enabled' : ''}`}
-        disabled={!selectedTimeSlot}
-        onClick={() => setIsModalOpen(true)}
-      >
-        Book Appointment
-      </button>
       
-      {/* Calendar Container */}
       <div className="calendar-container">
-        {/* Month Navigation */}
+        
         <div className="calendar-header">
           <h3 className="month-year">
             {monthNames[currentMonth.getMonth()]}, {currentMonth.getFullYear()}
@@ -100,7 +93,7 @@ const BookAppointmentCard = () => {
           </button>
         </div>
         
-        {/* Days of Week Header */}
+        
         <div className="days-of-week">
           {daysOfWeek.map((day) => (
             <div 
@@ -112,7 +105,7 @@ const BookAppointmentCard = () => {
           ))}
         </div>
         
-        {/* Calendar Grid */}
+      
         <div className="calendar-grid">
           {calendarDays.map((dateInfo, index) => {
             const isSelected = dateInfo.isCurrentMonth && dateInfo.day === selectedDate;
@@ -142,13 +135,12 @@ const BookAppointmentCard = () => {
           })}
         </div>
         
-        {/* Booked Legend */}
         <div className="booked-legend">
           <span className="legend-dot"></span>
           <span className="legend-text">Booked</span>
         </div>
         
-        {/* Selected Day Details */}
+        
         <div className="selected-day-details">
           <CalendarIcon size={18} className="calendar-icon" />
           <div>
@@ -159,9 +151,8 @@ const BookAppointmentCard = () => {
           </div>
         </div>
         
-        {/* Time Slots */}
+        
         <div className="time-slots-grid">
-          {/* Available Time Slots */}
           {availableTimeSlots.map((time, index) => (
             <button
               key={`available-${index}`}
@@ -172,7 +163,6 @@ const BookAppointmentCard = () => {
             </button>
           ))}
           
-          {/* Unavailable Time Slots */}
           {unavailableTimeSlots.map((time, index) => (
             <button
               key={`unavailable-${index}`}
@@ -185,7 +175,6 @@ const BookAppointmentCard = () => {
         </div>
       </div>
       
-      {/* Booking Confirmation Modal */}
       <BookingConfirmationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
